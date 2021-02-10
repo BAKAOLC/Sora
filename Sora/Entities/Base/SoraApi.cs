@@ -568,6 +568,42 @@ namespace Sora.Entities.Base
             return ((APIStatusType retCode, List<TextDetection> texts, string lang))
                 await ApiInterface.OcrImage(imageId, this.ConnectionGuid);
         }
+
+        /// <summary>
+        /// 上传群文件
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="file">本地文件路径</param>
+        /// <param name="name">文件名称</param>
+        public async ValueTask UploadGroupFile(long groupId, string file, string name)
+        {
+            if (groupId < 100000) throw new ArgumentOutOfRangeException(nameof(groupId));
+            await ApiInterface.UploadGroupFile(groupId, file, name, this.ConnectionGuid);
+        }
+
+        /// <summary>
+        /// 上传群文件
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="file">本地文件路径</param>
+        /// <param name="name">文件名称</param>
+        /// <param name="folderID">目标文件夹ID</param>
+        public async ValueTask UploadGroupFile(long groupId, string file, string name, string folderID)
+        {
+            if (groupId < 100000) throw new ArgumentOutOfRangeException(nameof(groupId));
+            await ApiInterface.UploadGroupFile(groupId, file, name, folderID, this.ConnectionGuid);
+        }
+
+        /// <summary>
+        /// 发送群公告
+        /// </summary>
+        /// <param name="groupId">群号</param>
+        /// <param name="content">公告内容</param>
+        public async ValueTask SendGroupNotice(long groupId, string content)
+        {
+            if (groupId < 100000) throw new ArgumentOutOfRangeException(nameof(groupId));
+            await ApiInterface.SendGroupNotice(groupId, content, this.ConnectionGuid);
+        }
         #endregion
 
         #endregion

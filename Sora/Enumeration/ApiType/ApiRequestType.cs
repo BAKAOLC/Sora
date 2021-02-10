@@ -220,7 +220,17 @@ namespace Sora.Enumeration.ApiType
         /// 重载事件过滤器
         /// </summary>
         [Description("reload_event_filter")]
-        ReloadEventFilter
+        ReloadEventFilter,
+        /// <summary>
+        /// 上传群文件
+        /// </summary>
+        [Description("upload_group_file")]
+        UploadGroupFile,
+        /// <summary>
+        /// 发送群公告
+        /// </summary>
+        [Description("_send_group_notice")]
+        SendGroupNotice
         #endregion
     }
 }

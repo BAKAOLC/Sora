@@ -1120,11 +1120,77 @@ namespace Sora.Server.ServerInterface
             ConsoleLog.Debug("Sora","Sending set_group_leave request");
             await SendApiMessage(new ApiRequest
             {
-                ApiRequestType = ApiRequestType.SetGroupLeave,
+                ApiRequestType = ApiRequestType.UploadGroupFile,
                 ApiParams = new
                 {
                     group_id   = gid,
                     is_dismiss = dismiss
+                }
+            }, connection);
+        }
+
+        /// <summary>
+        /// 上传群文件到根目录
+        /// </summary>
+        /// <param name="gid">群号</param>
+        /// <param name="file">文件路径</param>
+        /// <param name="name">上传名称</param>
+        /// <param name="connection">连接标识</param>
+        internal static async ValueTask UploadGroupFile(long gid, string file, string name, Guid connection)
+        {
+            ConsoleLog.Debug("Sora", "Sending upload_group_file request");
+            await SendApiMessage(new ApiRequest
+            {
+                ApiRequestType = ApiRequestType.UploadGroupFile,
+                ApiParams = new
+                {
+                    group_id = gid,
+                    file = file,
+                    name = name
+                }
+            }, connection);
+        }
+
+        /// <summary>
+        /// 上传群文件到目录
+        /// </summary>
+        /// <param name="gid">群号</param>
+        /// <param name="file">文件路径</param>
+        /// <param name="name">上传名称</param>
+        /// <param name="folderID">文件夹ID</param>
+        /// <param name="connection">连接标识</param>
+        internal static async ValueTask UploadGroupFile(long gid, string file, string name, string folderID, Guid connection)
+        {
+            ConsoleLog.Debug("Sora", "Sending upload_group_file request");
+            await SendApiMessage(new ApiRequest
+            {
+                ApiRequestType = ApiRequestType.GetGroupFileUrl,
+                ApiParams = new
+                {
+                    group_id = gid,
+                    file = file,
+                    name = name,
+                    folder = folderID
+                }
+            }, connection);
+        }
+
+        /// <summary>
+        /// 发送群公告
+        /// </summary>
+        /// <param name="gid">群号</param>
+        /// <param name="content">公告内容</param>
+        /// <param name="connection">连接标识</param>
+        internal static async ValueTask SendGroupNotice(long gid, string content, Guid connection)
+        {
+            ConsoleLog.Debug("Sora", "Sending _send_group_notice request");
+            await SendApiMessage(new ApiRequest
+            {
+                ApiRequestType = ApiRequestType.SendGroupNotice,
+                ApiParams = new
+                {
+                    group_id = gid,
+                    content = content
                 }
             }, connection);
         }
