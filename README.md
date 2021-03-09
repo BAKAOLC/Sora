@@ -1,6 +1,6 @@
 <h1 align="center">
 	<br>
-	<img width="200" src="https://i.loli.net/2020/10/14/Q3NPTLuC4no16ye.png" alt="LOGO">
+	<img width="200" src="Sora/icon.png" alt="LOGO">
 	<br>
 	Sora
 	<h4 align="center">
@@ -31,6 +31,8 @@
 
 详细的介绍文档还在编写
 
+如需要查看最新自动生成的文档请前往 [![Sora on fuget.org](https://www.fuget.org/packages/Sora/badge.svg)](https://www.fuget.org/packages/Sora)
+
 ## 开发注意事项
 
 ### **目前框架并没有发布LTS版本**
@@ -48,13 +50,23 @@
 
 详细内容请关注文档的更新
 
-> 本框架是在[Go-Cqhttp](https://github.com/Mrs4s/go-cqhttp)(版本:[0.9.39](https://github.com/Mrs4s/go-cqhttp/releases/tag/v0.9.39))下进行调试的，如使用其他平台可能会出现兼容性的问题
+> 本框架是通过和[Go-Cqhttp](https://github.com/Mrs4s/go-cqhttp)(版本:[0.9.40-fix3](https://github.com/Mrs4s/go-cqhttp/releases/tag/v0.9.40-fix3))通讯进行调试的，如使用其他平台可能会出现兼容性的问题
+
+## 关于ISSUE
+
+ISSUE 目前只接受bug的提交和新功能的建议
+
+如果有使用问题或者不确定的问题请使用[Discussions](https://github.com/Yukari316/Sora/discussions)
 
 > 请注意, 开发者并没有**义务**回复您的问题. 您应该具备基本的提问技巧。
 >
-> 如果issue被直接关闭了
->
-> 那么请在提问前阅读 [提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md) 和 [正确的提问姿势](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)
+> 如果不知道该怎么样提问，那么请在提问前阅读 [提问的智慧](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)
+
+以下ISSUE会被直接关闭
+
+- 提交BUG时没有使用Template
+- 提交当前版本下已经被修复的BUG
+- 询问问题（为什么不用用[Discussions](https://github.com/Yukari316/Sora/discussions)呢）
 
 ## 关于本框架
 
@@ -64,4 +76,24 @@ Sora这个名字来源于日语中"空"的罗马音
 
 这个项目同时也是我学习C#这个语言的过程中的产物，所以里面可能会部分拉高血压的代码 ~~屎山~~
 
-如果有什么建议的话，可以在issue里提出哦
+如果有什么建议的话，可以在[Discussions](https://github.com/Yukari316/Sora/discussions)里提出哦
+
+## 鸣谢
+
+感谢以下大佬对本框架开发的帮助
+
+[Mrs4s](https://github.com/Mrs4s) | [wdvxdr1123](https://github.com/wdvxdr1123) | [Kengxxiao](https://github.com/Kengxxiao)
+
+### 源代码参考
+
+[Jie2GG](https://github.com/Jie2GG)/[Native.Framework](https://github.com/Jie2GG/Native.Framework)
+
+### 使用到的开源库
+
+[Fleck](https://github.com/statianzo/Fleck) | [Newtonsoft.Json](https://www.newtonsoft.com/json) | [System.Reactive](https://github.com/dotnet/reactive) | [YukariToolBox](https://github.com/DeepOceanSoft/YukariToolBox)
+
+### 感谢 [JetBrains](https://www.jetbrains.com/?from=mirai) 为开源项目提供免费的全家桶授权
+
+> 本项目使用了免费的[ReSharper](https://www.jetbrains.com/resharper/)插件
+
+[<img src=".github/jetbrains-variant-3.png" width="200"/>](https://www.jetbrains.com/)

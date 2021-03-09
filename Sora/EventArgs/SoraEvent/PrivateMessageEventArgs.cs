@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Sora.Entities.CQCodes;
-using Sora.Server.OnebotEvent.MessageEvent;
+using Sora.OnebotModel.OnebotEvent.MessageEvent;
 using Sora.Entities;
 using Sora.Entities.Info;
 using Sora.Enumeration.ApiType;
-using Sora.Server;
+using Sora.OnebotModel;
 
 namespace Sora.EventArgs.SoraEvent
 {
@@ -16,6 +16,7 @@ namespace Sora.EventArgs.SoraEvent
     public sealed class PrivateMessageEventArgs : BaseSoraEventArgs
     {
         #region 属性
+
         /// <summary>
         /// 消息内容
         /// </summary>
@@ -30,9 +31,16 @@ namespace Sora.EventArgs.SoraEvent
         /// 发送者信息
         /// </summary>
         public PrivateSenderInfo SenderInfo { get; private set; }
+
+        /// <summary>
+        /// 是否为临时会话
+        /// </summary>
+        public bool IsTemporaryMessage { get; private set; }
+
         #endregion
 
         #region 构造函数
+
         /// <summary>
         /// 初始化
         /// </summary>
@@ -46,12 +54,15 @@ namespace Sora.EventArgs.SoraEvent
             this.Message = new Message(connectionGuid, privateMsgArgs.MessageId, privateMsgArgs.RawMessage,
                                        MessageParse.Parse(privateMsgArgs.MessageList),
                                        privateMsgArgs.Time, privateMsgArgs.Font, null);
-            this.Sender     = new User(connectionGuid, privateMsgArgs.UserId);
-            this.SenderInfo = privateMsgArgs.SenderInfo;
+            this.Sender             = new User(connectionGuid, privateMsgArgs.UserId);
+            this.SenderInfo         = privateMsgArgs.SenderInfo;
+            this.IsTemporaryMessage = privateMsgArgs.SenderInfo.GroupId != null;
         }
+
         #endregion
 
         #region 快捷方法
+
         /// <summary>
         /// 快速回复
         /// </summary>
@@ -80,6 +91,7 @@ namespace Sora.EventArgs.SoraEvent
         {
             return await base.SoraApi.SendPrivateMessage(this.Sender.Id, this.Message.MessageList);
         }
+
         #endregion
     }
 }
